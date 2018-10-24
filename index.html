@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>lesson one</title>
+		<link id="skin" rel="stylesheet" type="text/css" href="pink.css"/>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				color: #333;
+				font-size: 14px;
+			}
+			.lesson {
+				border: 1px dashed lightgrey;
+				width: 500px;
+				padding: 5px;
+				margin: 0 auto;
+			}
+			#box1 {
+				width: 60px;
+				height: 60px;
+				background: #333;
+			}
+			#pink,#green,#skyblue {
+				display: inline-block;
+				height: 20px;
+				width: 20px;
+				cursor: pointer;
+			}
+			#pink {
+				background: rgba(255,192,203,1);
+			}
+			#green {
+				background: rgba(0,255,0,1);
+			}
+			#skyblue {
+				background: rgba(135,206,235,1);
+			}
+			.box2 {
+				width: 60px;
+				height: 60px;
+				background: #333;
+				display: inline-block;
+			}
+			#box3 {
+				width: 60px;
+				height: 60px;
+				border: 1px solid;
+			}
+			.onmouseover {
+				background-color: red;
+				border-radius: 50%;
+			}
+			.onmouseout {
+				
+			}
+			#tips {
+				display: none;
+				width: 200px;
+				border: 1px solid red;
+				padding: 8px;
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="lesson">
+			1、控制div属性<br />
+			<button onclick="changeWidth()">变宽</button>
+			<button onclick="changeHeight()">变高</button>
+			<button onclick="changeColor()">变色</button>
+			<button onclick="hiding()">隐藏</button>
+			<button onclick="reset()">重置</button>
+			<div id="box1"></div>
+		</div>
+		<div class="lesson">
+			2、网页换肤<br />
+			<div id="pink"></div>
+			<div id="green"></div>
+			<div id="skyblue"></div>
+		</div>
+		<div class="lesson">
+			3、函数接收参数并弹出
+			<p><input type="text" value="北京市" id="city"/></p>
+			<p><input type="text" value="朝阳区" id="area"/></p>
+			<p><button id="btn1" onclick="get()">传参</button></p>
+		</div>
+		<div class="lesson">
+			4、<button onclick="changeAllColor()">用循环将3个div变成红色</button><br />
+			<div class="box2"></div>
+			<div class="box2"></div>
+			<div class="box2"></div>
+		</div>
+		<div class="lesson">
+			5、鼠标移入/移出改变样式<br />
+			<div id="box3"></div>
+		</div>
+		<div class="lesson">
+			6、记住密码提示框<br />
+			<input type="checkbox" id="autologin"/>两周内自动登陆
+    		<div id="tips">为了您的信息安全，请不要在网吧或公用电脑上使用此功能！</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box1 = document.getElementById("box1")
+		function changeWidth (){
+			box1.style.width="120px";
+		}
+		function changeHeight (){
+			box1.style.height="120px";
+		}
+		function changeColor (){
+			box1.style.background="red";
+		}
+		function hiding (){
+			box1.style.display="none";
+		}
+		function reset (){
+			box1.style.display="block";
+			box1.style.width="60px";
+			box1.style.height="60px";
+			box1.style.background="#333";
+		}
+		/*-----------------------------------*/
+		var skin = document.getElementById("skin");
+		var pink = document.getElementById("pink");
+		var green = document.getElementById("green");
+		var skyblue = document.getElementById("skyblue");
+		pink.onclick=function(){
+			skin.href = "pink.css";
+		}
+		green.onclick=function(){
+			skin.href = "green.css";
+		}
+		skyblue.onclick=function(){
+			skin.href = "blue.css";
+		}
+		/*-----------------------------------*/
+		var btn1 = document.getElementById("btn1");
+		var city = document.getElementById("city");
+		var area = document.getElementById("area");
+		function get (){
+			for(var i = 0;i<document.getElementsByTagName("input").length;i++){
+				alert(document.getElementsByTagName("input")[i].value);
+			}
+		}
+		/*-----------------------------------*/
+		function changeAllColor(){
+			var arraybox2 = document.getElementsByClassName("box2");
+			for(var i = 0;i<arraybox2.length;i++){
+				arraybox2[i].style.backgroundColor = "red";
+			}
+		}
+		/*-----------------------------------*/
+		var box3 = document.getElementById("box3");
+		box3.onmouseover =function(){
+			box3.className = "onmouseover";
+		}
+		box3.onmouseout =function(){
+			box3.className = "onmouseout";
+		}
+		/*-----------------------------------*/
+		var autologin = document.getElementById("autologin");
+		var tips = document.getElementById("tips");
+		autologin.onmouseover = function(){
+			tips.style.display = "block";
+		}
+		autologin.onmouseout = function(){
+			tips.style.display = "none";
+		}
+	</script>
+</html>
