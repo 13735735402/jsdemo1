@@ -84,8 +84,8 @@
 		</div>
 		<div class="lesson">
 			3、函数接收参数并弹出
-			<p><input type="text" value="北京市" id="city"/></p>
-			<p><input type="text" value="朝阳区" id="area"/></p>
+			<p><input type="text" value="北京市" id="city" class="place"/></p>
+			<p><input type="text" value="朝阳区" id="area" class="place"/></p>
 			<p><button id="btn1" onclick="get()">传参</button></p>
 		</div>
 		<div class="lesson">
@@ -143,8 +143,8 @@
 		var city = document.getElementById("city");
 		var area = document.getElementById("area");
 		function get (){
-			for(var i = 0;i<document.getElementsByTagName("input").length;i++){
-				alert(document.getElementsByTagName("input")[i].value);
+			for(var i = 0;i<document.getElementsByClassName("place").length;i++){
+				alert(document.getElementsByClassName("place")[i].value);
 			}
 		}
 		/*-----------------------------------*/
